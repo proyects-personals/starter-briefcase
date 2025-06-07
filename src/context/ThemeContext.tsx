@@ -5,7 +5,9 @@ export type ThemeContextType = {
   toggleTheme: () => void;
 };
 
-export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+  undefined
+);
 
 type ThemeProviderProps = {
   children: ReactNode;
@@ -13,7 +15,7 @@ type ThemeProviderProps = {
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const storedTheme = localStorage.getItem('theme');
-  const initialTheme = storedTheme === 'true';
+  const initialTheme = storedTheme !== null ? storedTheme === 'true' : true;
 
   const [isDarkTheme, setIsDarkTheme] = useState<boolean>(initialTheme);
 
@@ -22,7 +24,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   }, [isDarkTheme]);
 
   const toggleTheme = () => {
-    setIsDarkTheme(prevTheme => !prevTheme);
+    setIsDarkTheme((prevTheme) => !prevTheme);
   };
 
   return (
