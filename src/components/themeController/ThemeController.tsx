@@ -17,7 +17,7 @@ const ThemeController: React.FC = () => {
           height="20"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#ffffff"
+          stroke="#ffffff" /* Color del tema oscuro */
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -32,7 +32,7 @@ const ThemeController: React.FC = () => {
           height="20"
           viewBox="0 0 24 24"
           fill="none"
-          stroke="#000000"
+          stroke="#000000" /* Color del tema claro */
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -44,8 +44,8 @@ const ThemeController: React.FC = () => {
         type="checkbox"
         value="synthwave"
         className="toggle theme-controller"
-        checked={isDarkTheme}
-        onChange={handleThemeToggle}
+        checked={isDarkTheme} 
+        onChange={handleThemeToggle} 
       />
     </label>
   );
