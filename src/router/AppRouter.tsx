@@ -1,30 +1,23 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import BriefcaseScreen from '../pages/modules/briefcases/BriefcaseScreen';
-import Header from '../components/common/header/Header';
-import PageWrapperCustom from '../components/common/page/custom/PageWrapperCustom';
-import MainWrapperCustom from '../components/common/page/custom/MainWrapperCustom';
-import Footer from '../components/common/layout/Footer';
+import PresentationScreen from '../pages/modules/presentation/PresentationScreen';
+import WorkExperienceScreen from '../pages/modules/presentation/WorkExperienceScreen';
+import MyStudiesScreen from '../pages/modules/presentation/MyStudiesScreen';
 
 const AppRouter: React.FC = () => {
   return (
-    <Router
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true,
-      }}
-    >
-      <MainWrapperCustom>
-        <Header />
-        <PageWrapperCustom>
-          <main>
-            <Routes>
-              <Route path="/" element={<BriefcaseScreen />} />
-            </Routes>
-          </main>
-        </PageWrapperCustom>
-        <Footer />
-      </MainWrapperCustom>
+    <Router>
+      <div className="App">
+        <main>
+          <Routes>
+            <Route path="/" element={<BriefcaseScreen />} />
+            <Route path="/presentacion" element={<PresentationScreen />} />
+            <Route path="/experience" element={<WorkExperienceScreen />} />
+            <Route path="/studies" element={<MyStudiesScreen />} />
+          </Routes>
+        </main>
+      </div>
     </Router>
   );
 };
